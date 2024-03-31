@@ -1,0 +1,77 @@
+.bubble-container{
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+}
+.report-btn{
+    background: #ff0000;
+    border-radius: 12px;
+    outline-color: white;
+    color: white;
+    box-shadow: 0 0 3px black;
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+    padding: 14px 15px;
+    align-items: center;
+}
+.report-btn>.report-guide{
+    margin: 20px 0;
+    text-align: center;
+}
+.report-btn>.report-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:18px;
+    font-weight: bold;
+}
+.report-btn>.action-btn{
+    background: #ffffff;
+    border-radius: 6px;
+    color: black;
+    padding: 7px 33px;
+    margin-bottom: 10px;
+    width: 150px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+
+}
+.transfer-btn{
+    background: #ffffff;
+    border-radius: 100px;
+    color: black;
+    display: flex;
+    padding: 7px 12px;
+    margin-bottom: 20px;
+    width: fit-content;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.transfer-btn>img{
+    width: 18px;
+    height: 18px;
+}
+.transfer-btn>img:nth-child(2){
+    margin-left: 8px;
+}
+.transfer-btn>img{
+    margin-right: 8px;
+}
+.report-header>img{
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+}
+.report-header>.report-count{
+    margin-left: 20px;
+}
+.transfer-btn>.line-tag{
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    padding: 2px 7px;
+    color: white;
+}

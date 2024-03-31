@@ -1,0 +1,167 @@
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 200px;
+    padding-top: 120px;
+}
+.no-header{
+    padding-top: 0 !important;
+}
+html {
+    display: flex;
+    justify-content: center;
+    min-width: 320px;
+    font-family: "Seoul Namsan", sans-serif;
+}
+body {
+    width:100vh;
+    max-width: 400px;
+    background-image: url('../assets/img/bg.svg');
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 20px 0;
+    flex-direction: column;
+    align-items: center;
+}
+span{
+    display: contents;
+}
+.fill-flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+}
+:root {
+    --line-1: #0052A4;
+    --line-2: #00A84D;
+    --line-3: #EF7C1C;
+    --line-4: #00A5DE;
+    --line-5: #996CAC;
+    --line-6: #CD7C2F;
+    --line-7: #747F00;
+    --line-8: #E6186C;
+    --line-9: #BDB092;
+    --line-air: #0090D2;
+    --line-gyeongui: #77C4A3;
+    --line-uisinsul:#BOCE18;
+    --line-gyeongang: #003DA5;
+    --line-gyeonchun: #0C8E72;
+    --line-sinrim: #6789CA;
+    --line-ever: #6FB245;
+    --line-incheon1: #7CA8D5;
+    --line-seohae: #81A914;
+    --line-gimpo: #A17800;
+    --line-sinbundang: #D4003B;
+    --line-incheon2: #ED8B00;
+    --line-suinbundang: #F5A200;
+}
+@font-face {
+    font-family: 'Seoul Namsan';
+    src: url('../assets/font/SeoulNamsanM.ttf') format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Seoul Namsan';
+    src: url('../assets/font/SeoulNamsanB.ttf') format('truetype');
+    font-weight: bold;
+}
+.line-1 {
+    outline-color: var(--line-1) !important;
+}
+
+.line-2 {
+    outline-color: var(--line-2) !important;
+}
+
+.line-3 {
+    outline-color: var(--line-3) !important;
+}
+
+.line-4 {
+    outline-color: var(--line-4) !important;
+}
+
+.line-5 {
+    outline-color: var(--line-5) !important;
+}
+
+.line-6 {
+    outline-color: var(--line-6) !important;
+}
+
+.line-7 {
+    outline-color: var(--line-7) !important;
+}
+
+.line-8 {
+    outline-color: var(--line-8) !important;
+}
+
+.line-9 {
+    outline-color: var(--line-9) !important;
+}
+
+.line-air {
+    outline-color: var(--line-air) !important;
+}
+
+.line-gyeongui {
+    outline-color: var(--line-gyeongui) !important;
+}
+
+.line-uisinsul {
+    outline-color: var(--line-uisinsul) !important;
+}
+
+.line-gyeongang {
+    outline-color: var(--line-gyeongang) !important;
+}
+
+.line-gyeonchun {
+    outline-color: var(--line-gyeonchun) !important;
+}
+
+.line-sinrim {
+    outline-color: var(--line-sinrim) !important;
+}
+
+.line-ever {
+    outline-color: var(--line-ever) !important;
+}
+
+.line-incheon1 {
+    outline-color: var(--line-incheon1) !important;
+}
+
+.line-seohae {
+    outline-color: var(--line-seohae) !important;
+}
+.line-gimpo {
+    outline-color: var(--line-gimpo) !important;
+}
+.line-sinbundang {
+    outline-color: var(--line-sinbundang) !important;
+}
+.line-incheon2 {
+    outline-color: var(--line-incheon2) !important;
+}
+.line-suinbundang {
+    outline-color: var(--line-suinbundang) !important;
+}
+
+span{
+    display: contents;
+}

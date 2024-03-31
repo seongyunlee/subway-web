@@ -1,0 +1,61 @@
+.bubble{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    padding: 8px 14px 8px 10px;
+    width:fit-content;
+    position: relative;
+    background: white;
+    border-radius: 14px;
+    margin-bottom: 16px;
+}
+.bubble-left{
+    align-self: flex-start;
+}
+.bubble-right{
+    align-self: flex-end;
+}
+.bubble-right:after{
+    content: '';
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 100%;
+    margin-top: -10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid white;
+}
+.bubble-left:after{
+    content: '';
+    position: absolute;
+    display: block;
+    top: 50%;
+    right: 100%;
+    margin-top: -10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid white;
+}
+.line-circle{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bubble>img{
+    margin:0 10px 0 10px;
+    height:100%;
+}
+.station-name{
+    margin-left: 20px;
+    font-size: 20px;
+}

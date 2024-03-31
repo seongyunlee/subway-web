@@ -1,0 +1,20 @@
+.line-picker{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+.line-picker-item{
+    width:100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: pre-wrap;
+    color: white;
+    outline: 2px solid white;
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
+}
