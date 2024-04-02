@@ -1,62 +1,74 @@
-.menu-title{
+.menu-title {
     width: 100%;
     justify-content: center;
     display: flex;
-    position:relative;
+    position: relative;
     margin-bottom: 56px;
 }
-.title-badge{
+
+.title-badge {
     width: 60%;
 }
-.title-strip{
-    width:100%;
+
+.title-strip {
+    width: 100%;
     position: absolute;
     top: 30%;
     z-index: -1;
 }
-.title-strip>#top{
+
+.title-strip > #top {
     height: 16px;
     background: yellow;
 }
-.title-strip>#bottom{
+
+.title-strip > #bottom {
     height: 24px;
     background: green;
 }
-.drop-down-btn{
+
+.drop-down-btn {
     height: 36px;
     border-radius: 18px;
     display: flex;
     background: #4891FF;
-    color:white;
+    color: white;
     padding: 0 20px 0 10px;
     align-items: center;
-    width:fit-content;
+    width: fit-content;
     margin-bottom: 30px;
     cursor: pointer;
 }
-.drop-down-btn>img{
-    width:20px;
-    height:20px;
+
+.drop-down-btn > img {
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
     border-radius: 10px;
     box-shadow: 0 0 3px black;
 }
-.game-list{
+
+.game-list {
     width: 90%;
 }
+
 .game-list > div {
     margin-bottom: 20px;
 }
-.game-list > :nth-child(1){
+
+.game-list > :nth-child(1) {
     outline-color: var(--line-1);
 }
-.game-list > :nth-child(2){
+
+.game-list > :nth-child(2) {
     outline-color: var(--line-3);
 }
-.game-list > :nth-child(3){
+
+.game-list > :nth-child(3) {
     outline-color: var(--line-4);
 }
-.content{
+
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,31 +79,36 @@
     padding: 14px 14px;
     background: white;
     outline: 4px solid black;
-    margin-bottom: 14px;
+    margin-bottom: 30px;
 }
-.content>img{
+
+.content > img {
     max-height: 200px;
 }
-.guide-badge-container{
+
+.guide-badge-container {
     margin-bottom: 20px;
     width: 90%;
     display: flex;
     max-width: 360px;
     position: fixed;
     flex-direction: column;
-    top:40px;
+    top: 40px;
 }
-.content-container{
+
+.content-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
-.red{
+
+.red {
     color: red;
 }
-.input-container{
+
+.input-container {
     width: 90%;
     margin-bottom: 40px;
     position: fixed;

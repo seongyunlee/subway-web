@@ -2,38 +2,90 @@ import '../css/Badge.css'
 import RightArrow from "../assets/img/return-arrow.svg";
 import HomeButton from "../assets/img/home.svg";
 import {useNavigate} from "react-router-dom";
-import {LineID,HexLineColor} from "../utill/LineID";
-export default function Badge(props){
+import {HexLineColor} from "../utill/LineID";
+import {useEffect, useRef, useState} from "react";
+
+export default function Badge(props) {
 
     const navigate = useNavigate();
 
 
-
-    function goHome(){
+    function goHome() {
         navigate('/');
     }
 
-    let {main,sub, lineColor, isInput, isButton, isHomeButtonVisible,isNextButtonVisible} = props;
+
+    let {
+        main,
+        sub,
+        lineColor,
+        isInput,
+        isButton,
+        isHomeButtonVisible,
+        isNextButtonVisible,
+        returnHandler,
+    } = props;
 
     let rootClass = "badge";
-    if(isButton){
+    if (isButton) {
         rootClass += " btn";
     }
-    if(lineColor){
+    if (lineColor) {
         rootClass += " " + lineColor;
     }
-    if(isInput){
+    if (isInput) {
         rootClass += " input-badge";
     }
 
+    const inputRef = useRef();
+    const badgeRef = useRef();
+    const scrollIntoView = (e) => {
+        window.visualViewport.onresize = () => {
+            const visualViewport = window.visualViewport;
+            const {height} = visualViewport;
+            window.scrollTo(0, 0);
+            const rect = badgeRef?.current?.getBoundingClientRect();
+            if (!rect) return;
+            const gap = rect.bottom - height;
+            if (gap > 0) {
+                window.scrollBy(0, gap + 10);
+            } else {
+                window.scrollBy(0, 0);
+            }
+        }
+    }
 
-    if(isInput){
+    const [inputValue, setInputValue] = useState("");
+
+    const handleReturnKey = (e) => {
+        if (e.keyCode === 13) {
+            returnValue();
+        }
+    }
+    const returnValue = () => {
+        returnHandler(inputValue);
+        setInputValue("");
+    }
+
+    useEffect(() => {
+        console.log("inputRef", inputRef);
+        inputRef?.current?.focus();
+    });
+
+
+    if (isInput) {
         return (
-            <div className={rootClass}>
+            <div className={rootClass} ref={badgeRef}>
                 <label>
-                    <input type="text" className="badge-input" placeholder={props.hint}/>
+                    <input type="text" className="badge-input" placeholder={props.hint} value={inputValue}
+                           onChange={(e) => setInputValue(e.target.value)}
+                           onFocus={scrollIntoView}
+                           onKeyUp={handleReturnKey}
+                           ref={inputRef}
+                    />
                 </label>
-                <div className="badge-btn return-btn" style={{background: HexLineColor[lineColor]}}>
+                <div className="badge-btn return-btn" style={{background: HexLineColor[lineColor]}}
+                     onClick={returnValue}>
                     <img src={RightArrow} alt="→"/>
                 </div>
             </div>
@@ -46,9 +98,9 @@ export default function Badge(props){
         <div className={rootClass} onClick={props.onClick}>
             {
                 isHomeButtonVisible &&
-                    <div className="badge-btn home-btn" onClick={goHome} style={{background: HexLineColor[lineColor]}}>
-                        <img src={HomeButton} alt="🏠"/>
-                    </div>
+                <div className="badge-btn home-btn" onClick={goHome} style={{background: HexLineColor[lineColor]}}>
+                    <img src={HomeButton} alt="🏠"/>
+                </div>
             }
             <div className="badge-main">{main}</div>
             <div className="badge-sub">{sub}</div>
