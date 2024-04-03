@@ -24,6 +24,7 @@ export default function Badge(props) {
         isHomeButtonVisible,
         isNextButtonVisible,
         returnHandler,
+        inputRef,
     } = props;
 
     let rootClass = "badge";
@@ -37,21 +38,19 @@ export default function Badge(props) {
         rootClass += " input-badge";
     }
 
-    const inputRef = useRef();
     const badgeRef = useRef();
-    const scrollIntoView = (e) => {
-        window.visualViewport.onresize = () => {
-            const visualViewport = window.visualViewport;
-            const {height} = visualViewport;
-            window.scrollTo(0, 0);
-            const rect = badgeRef?.current?.getBoundingClientRect();
-            if (!rect) return;
-            const gap = rect.bottom - height;
-            if (gap > 0) {
-                window.scrollBy(0, gap + 10);
-            } else {
-                window.scrollBy(0, 0);
-            }
+    const scrollIntoView = () => {
+        console.log("Srcroll!!!");
+        const visualViewport = window.visualViewport;
+        const {height} = visualViewport;
+        window.scrollTo(0, 0);
+        const rect = badgeRef?.current?.getBoundingClientRect();
+        if (!rect) return;
+        const gap = rect.bottom - height;
+        if (gap > 0) {
+            window.scrollBy(0, gap + 10);
+        } else {
+            window.scrollBy(0, 0);
         }
     }
 
@@ -68,9 +67,10 @@ export default function Badge(props) {
     }
 
     useEffect(() => {
-        console.log("inputRef", inputRef);
-        inputRef?.current?.focus();
-    });
+        window.visualViewport.onresize = () => {
+            scrollIntoView()
+        }
+    }, []);
 
 
     if (isInput) {

@@ -1,6 +1,6 @@
 import Badge from "../../components/Badge";
 import {LineID} from "../../utill/LineID";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
@@ -19,6 +19,10 @@ export default function FillBlankGame() {
     const [answer, setAnswer] = useState(null);
 
     const [isCorrect, setIsCorrect] = useState(null);
+
+    const hiddenInput = useRef();
+
+    const inputRef = useRef();
 
 
     function setPlayerInfo(data) {
@@ -47,14 +51,26 @@ export default function FillBlankGame() {
                 finishGame();
             } else {
                 setProblem(newProblem);
+                setReadyToSetFocus(true);
             }
         }, 1000);
     }
+
+    const [readyToSetFocus, setReadyToSetFocus] = useState(false);
+
+    useEffect(() => {
+        console.log("onGame", readyToSetFocus, inputRef.current);
+        if (readyToSetFocus && inputRef.current) {
+            inputRef.current.focus();
+            setReadyToSetFocus(false);
+        }
+    });
 
 
     function submitAnswer(inputValue) {
         const header = {"playerId": playerId}
         const data = {answer: inputValue, problemId: problem.id}
+        hiddenInput?.current?.focus();
         axios.post(`${process.env.REACT_APP_BASE_URL}/fillblank/submit`, data, {headers: header}
         ).then(res => {
             console.log(res)
@@ -84,8 +100,9 @@ export default function FillBlankGame() {
                 </div>
                 <Badge hint="정답 입력" lineColor={(isCorrect !== false) ? LineID.line1 : LineID.lineSinbundang}
                        isInput={isCorrect == null} returnHandler={submitAnswer}
-                       main={isCorrect ? "정답입니다!" : "틀렸습니다!"}
+                       main={isCorrect ? "정답입니다!" : "틀렸습니다!"} inputRef={inputRef}
                        sub={isCorrect ? null : `정답은 ${answer}입니다.`}/>
+                <input className="fake-input" ref={hiddenInput}></input>
             </div>
         </div>
     )
