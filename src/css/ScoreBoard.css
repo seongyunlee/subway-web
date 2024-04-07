@@ -1,15 +1,17 @@
 
-.score-board{
-    width: 80%;
+.score-board {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 0 0 0;
+    margin-top: 25px;
     outline: 4px solid #290505;
     flex-direction: column;
     margin-bottom: 40px;
 }
-.board-header{
+
+.board-header {
     width: 100%;
     height: 44px;
     display: flex;
@@ -18,33 +20,42 @@
     align-items: center;
     padding: 0 0 0 0;
     font-size: 20px;
-    background:#4B4842;
-    color:white;
+    background: #4B4842;
+    color: white;
 }
-.board-header>.sub-title{
+
+.board-header > .sub-title {
     font-size: 12px;
     display: flex;
     flex-direction: column;
 }
-.score-board>.board-body{
+
+.score-board > .board-body {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: white;
 }
-.board-score-item{
+
+.myRecord {
+    color: red;
+}
+
+.board-score-item {
     display: flex;
     flex-direction: row;
     padding: 0 0 0 0;
     border-bottom: 1px solid black;
 }
-.board-score-item>.board-rank{
-    height:auto;
+
+.board-score-item > .board-rank {
+    height: auto;
     width: auto;
     padding: 6px 6px 6px 6px;
 }
-.board-score-item>.records-list{
-    height:auto;
+
+.board-score-item > .records-list {
+    height: auto;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -52,7 +63,8 @@
     row-gap: 6px;
     outline: 1px solid black;
 }
-.rank-circle{
+
+.rank-circle {
     background: #ffcc00;
     outline: 1px solid black;
     font-size: 10px;
@@ -65,17 +77,20 @@
     font-family: sans-serif;
     font-weight: bold;
 }
-.separator{
+
+.separator {
     width: 2px;
     height: 16px;
     margin: 0 10px 0 10px;
     background: white;
 }
-.record>.name{
+
+.record > .name {
     font-size: 14px;
     font-weight: bold;
 }
-.record>.score{
+
+.record > .score {
     font-size: 10px;
 }
 

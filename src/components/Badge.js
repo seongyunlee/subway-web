@@ -25,14 +25,12 @@ export default function Badge(props) {
         isNextButtonVisible,
         returnHandler,
         inputRef,
+        isFloating,
     } = props;
 
     let rootClass = "badge";
     if (isButton) {
         rootClass += " btn";
-    }
-    if (lineColor) {
-        rootClass += " " + lineColor;
     }
     if (isInput) {
         rootClass += " input-badge";
@@ -40,18 +38,22 @@ export default function Badge(props) {
 
     const badgeRef = useRef();
     const scrollIntoView = () => {
-        console.log("Srcroll!!!");
-        const visualViewport = window.visualViewport;
-        const {height} = visualViewport;
-        window.scrollTo(0, 0);
-        const rect = badgeRef?.current?.getBoundingClientRect();
-        if (!rect) return;
-        const gap = rect.bottom - height;
-        if (gap > 0) {
-            window.scrollBy(0, gap + 10);
-        } else {
-            window.scrollBy(0, 0);
-        }
+        return;
+        setTimeout(() => {
+            console.log("Srcroll!!!");
+            const visualViewport = window.visualViewport;
+            const {height} = visualViewport;
+            window.scrollTo(0, 0);
+            const rect = badgeRef?.current?.getBoundingClientRect();
+            if (!rect) return;
+            const gap = rect.bottom - height;
+            if (gap > 0) {
+                window.scrollBy(0, gap + 10);
+            } else {
+                window.scrollBy(0, 0);
+            }
+        }, 100);
+
     }
 
     const [inputValue, setInputValue] = useState("");
@@ -67,15 +69,17 @@ export default function Badge(props) {
     }
 
     useEffect(() => {
-        window.visualViewport.onresize = () => {
-            scrollIntoView()
+        if (isFloating != true) {
+            window.visualViewport.onresize = () => {
+                scrollIntoView()
+            }
         }
     }, []);
 
 
     if (isInput) {
         return (
-            <div className={rootClass} ref={badgeRef}>
+            <div className={rootClass} ref={badgeRef} style={{outlineColor: HexLineColor[lineColor], height: "80px"}}>
                 <label>
                     <input type="text" className="badge-input" placeholder={props.hint} value={inputValue}
                            onChange={(e) => setInputValue(e.target.value)}
@@ -95,7 +99,7 @@ export default function Badge(props) {
 
 
     return (
-        <div className={rootClass} onClick={props.onClick}>
+        <div className={rootClass} onClick={props.onClick} style={{outlineColor: HexLineColor[lineColor]}}>
             {
                 isHomeButtonVisible &&
                 <div className="badge-btn home-btn" onClick={goHome} style={{background: HexLineColor[lineColor]}}>

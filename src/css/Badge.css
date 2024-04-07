@@ -1,9 +1,9 @@
-.badge{
+.badge {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding:25px;
+    padding: 25px;
     width: 100%;
     background: white;
     font-size: 26px;
@@ -17,22 +17,27 @@
     flex-direction: column;
     position: relative;
 }
-.badge.btn:active{
+
+.badge.btn:active {
     background: #DCDCDC;
 }
-.badge>.badge-sub{
+
+.badge > .badge-sub {
     font-size: 16px;
 }
-.badge-btn.home-btn{
+
+.badge-btn.home-btn {
     left: 32px;
 }
-.badge-btn.return-btn{
+
+.badge-btn.return-btn {
     right: 16px;
 }
-.badge-btn{
+
+.badge-btn {
     position: absolute;
     transform: translate(0, -50%);
-    top:50%;
+    top: 50%;
     width: 50px;
     height: 50px;
     background: var(--line-1);
@@ -41,13 +46,16 @@
     align-items: center;
     border-radius: 25px;
 }
-.badge-input{
+
+.badge-input {
     font-family: "Seoul Namsan", sans-serif;
     border: none;
     font-size: 24px;
     text-align: center;
     outline: none;
 }
-.badge-input::placeholder{
+
+.badge-input::placeholder {
     font-size: 18px;
+
 }

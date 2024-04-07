@@ -34,7 +34,7 @@ export default function FillBlankGame() {
     }
 
     function finishGame() {
-        navigate(`/result?gameType=fillblank&score=${playerId}`);
+        navigate(`/result?gameType=fillblank&playerId=${playerId}`);
     }
 
     function showResult(data) {
@@ -59,7 +59,7 @@ export default function FillBlankGame() {
     const [readyToSetFocus, setReadyToSetFocus] = useState(false);
 
     useEffect(() => {
-        console.log("onGame", readyToSetFocus, inputRef.current);
+        return;
         if (readyToSetFocus && inputRef.current) {
             inputRef.current.focus();
             setReadyToSetFocus(false);
@@ -101,7 +101,7 @@ export default function FillBlankGame() {
                 <Badge hint="정답 입력" lineColor={(isCorrect !== false) ? LineID.line1 : LineID.lineSinbundang}
                        isInput={isCorrect == null} returnHandler={submitAnswer}
                        main={isCorrect ? "정답입니다!" : "틀렸습니다!"} inputRef={inputRef}
-                       sub={isCorrect ? null : `정답은 ${answer}입니다.`}/>
+                       sub={isCorrect ? null : `정답은 ${answer}입니다.`} isFloating/>
                 <input className="fake-input" ref={hiddenInput}></input>
             </div>
         </div>

@@ -2,15 +2,16 @@ import Badge from "../components/Badge";
 import dropDownImg from "../assets/img/drop-down.svg";
 import '../css/home.css'
 import {useNavigate} from "react-router-dom";
+
 export default function Home() {
 
     const navigate = useNavigate();
     const moveToFillBlankGame = () => {
-        navigate('/fill-blank/guide');
+        navigate('/fillblank/guide');
     }
 
     const moveToBestRouteGame = () => {
-        navigate('/best-route/guide');
+        navigate('/bestroute/guide');
     }
 
     const moveToTravelGame = () => {
