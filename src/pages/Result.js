@@ -18,22 +18,28 @@ export default function Result() {
 
     function processRanking(rawRanking, myRanking) {
         if (rawRanking) {
-            if (myRanking) {
-                rawRanking.push({
-                    nickName: "나",
-                    score: myRanking.score,
-                    duration: myRanking.duration,
-                    isMine: true,
-                });
-            }
-            const sorted = rawRanking.sort((a, b) => b.score - a.score);
-            const indexed = sorted.map((record, index) => {
+            const indexed = rawRanking.map((record, index) => {
                 return {
                     ...record,
                     rank: index + 1,
                 }
             })
             const group = Object.groupBy(indexed, ({score}) => score)
+            console.log('group', group, myRanking)
+            if (myRanking) {
+                const ownRank = {
+                    nickName: "나",
+                    score: myRanking.score,
+                    rank: myRanking.rank,
+                    duration: myRanking.duration,
+                    isMine: true,
+                }
+                if (group[myRanking.score]) {
+                    group[myRanking.score].push(ownRank)
+                } else {
+                    group[myRanking.score] = [ownRank]
+                }
+            }
             const flat = Object.entries(group).map(([score, records]) => {
                 return {
                     score: score,
@@ -104,12 +110,10 @@ export default function Result() {
 
     return (
         <div className="container">
-            <div className="guide-badge-container">
-                <Badge main="게임 결과"
-                       sub={playerId == null ? gameType : `최종 점수: ${playerScore != null ? playerScore : ""}`}
-                       isHomeButtonVisible
-                       lineColor={LineID.line1}/>
-            </div>
+            <Badge main="게임 결과"
+                   sub={playerId == null ? gameType : `최종 점수: ${playerScore != null ? playerScore : ""}`}
+                   isHomeButtonVisible
+                   lineColor={LineID.line1}/>
             <div className="score-board">
                 <div className="board-header">
                     <span>오늘의 순위</span>

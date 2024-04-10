@@ -14,10 +14,11 @@ export default function PickLine() {
 
     return (
         <div className="container">
-            <div className="guide-badge-container">
-                <Badge main="노선 선택" sub="처음 시작할 노선을 선택해주세요" lineColor={LineID.line3}/>
+            <Badge main="노선 선택" sub="처음 시작할 노선을 선택해주세요" lineColor={LineID.line3}/>
+            <div className="content-container">
+                <LinePicker style={{marginTop: '30px'}} setLine={moveToGame}/>
             </div>
-            <LinePicker setLine={moveToGame}/>
+
             <div className="input-container">
                 <Badge main="게임 시작" lineColor={LineID.line3} isButton/>
             </div>

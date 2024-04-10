@@ -79,7 +79,7 @@
     padding: 14px 14px;
     background: white;
     outline: 4px solid black;
-
+    margin-bottom: 30px;
 }
 
 .content > img {
@@ -87,21 +87,21 @@
 }
 
 .guide-badge-container {
+    margin-bottom: 20px;
     width: 90%;
     display: flex;
     max-width: 360px;
+    position: fixed;
     flex-direction: column;
+    top: 40px;
 }
 
 .content-container {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    row-gap: 25px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding-top: 20px;
-    padding-bottom: 40px;
+    margin-top: 20px;
 }
 
 .red {

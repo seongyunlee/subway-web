@@ -13,9 +13,7 @@ export default function TravelGuide() {
 
     return (
         <div className="container">
-            <div className="guide-badge-container">
-                <Badge main="지하철~ 지하철~" sub="게임 방법" lineColor={LineID.line3}/>
-            </div>
+            <Badge main="지하철~ 지하철~" sub="게임 방법" lineColor={LineID.line3}/>
             <div className="content-container">
                 <div className="content">
                     주어진 노선의 역명을 입력하세요!<br/>

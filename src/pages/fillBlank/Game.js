@@ -24,9 +24,28 @@ export default function FillBlankGame() {
 
     const inputRef = useRef();
 
+    const scrollIntoView = (event) => {
+
+        // legacy for Safari's Strange Keyboard Appearing Behavior
+        setTimeout(() => {
+            const visualViewport = window.visualViewport;
+            const {height} = visualViewport;
+            window.scrollTo(0, 0);
+            const rect = inputRef?.current?.parentNode?.getBoundingClientRect();
+            if (!rect) return;
+            const gap = rect.bottom - height;
+            if (gap > 0) {
+                window.scrollBy(0, gap + 10);
+            } else {
+                window.scrollBy(0, 0);
+            }
+        }, 100);
+
+    }
+
 
     function setPlayerInfo(data) {
-        const {playerId, problem, gameLife, gameScore} = data;
+        const {playerId, problem} = data;
         setPlayerId(playerId);
         setProblem(problem);
         setLife(life);
@@ -58,14 +77,6 @@ export default function FillBlankGame() {
 
     const [readyToSetFocus, setReadyToSetFocus] = useState(false);
 
-    useEffect(() => {
-        return;
-        if (readyToSetFocus && inputRef.current) {
-            inputRef.current.focus();
-            setReadyToSetFocus(false);
-        }
-    });
-
 
     function submitAnswer(inputValue) {
         const header = {"playerId": playerId}
@@ -80,16 +91,32 @@ export default function FillBlankGame() {
         })
     }
 
+    function initGame() {
+        axios.get(`${process.env.REACT_APP_BASE_URL}/fillblank/start`)
+            .then(res => {
+                    setPlayerInfo(res.data);
+                }
+            ).catch(err => {
+            alert("문제를 불러오는데 실패했습니다. 다시 시도해주세요.");
+        })
+    }
+
     useEffect(() => {
-            axios.get(`${process.env.REACT_APP_BASE_URL}/fillblank/start`)
-                .then(res => {
-                        setPlayerInfo(res.data);
-                    }
-                ).catch(err => {
-                alert("문제를 불러오는데 실패했습니다. 다시 시도해주세요.");
-            })
+            initGame();
         }, []
     )
+
+    function focusInput() {
+        if (readyToSetFocus && inputRef.current) {
+            inputRef.current.focus();
+            setReadyToSetFocus(false);
+        }
+    }
+
+    useEffect(() => {
+        focusInput();
+    }, [inputRef.current]);
+
 
     return (
         <div className="container">
@@ -101,7 +128,7 @@ export default function FillBlankGame() {
                 <Badge hint="정답 입력" lineColor={(isCorrect !== false) ? LineID.line1 : LineID.lineSinbundang}
                        isInput={isCorrect == null} returnHandler={submitAnswer}
                        main={isCorrect ? "정답입니다!" : "틀렸습니다!"} inputRef={inputRef}
-                       sub={isCorrect ? null : `정답은 ${answer}입니다.`} isFloating/>
+                       sub={isCorrect ? null : `정답은 ${answer}입니다.`}/>
                 <input className="fake-input" ref={hiddenInput}></input>
             </div>
         </div>

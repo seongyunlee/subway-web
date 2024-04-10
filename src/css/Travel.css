@@ -1,11 +1,14 @@
 .bubble-container {
     display: flex;
-    flex: 1;
     flex-direction: column;
     width: 100%;
-    margin-top: 20px;
-    height: 80vh;
-    overflow: scroll;
+    overflow-x: scroll;
+    flex-grow: 1;
+    padding: 0 10px;
+}
+
+.bubble-container > :nth-child(1) {
+    margin-top: auto !important;
 }
 
 .bubble-container::-webkit-scrollbar {

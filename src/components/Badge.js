@@ -3,7 +3,7 @@ import RightArrow from "../assets/img/return-arrow.svg";
 import HomeButton from "../assets/img/home.svg";
 import {useNavigate} from "react-router-dom";
 import {HexLineColor} from "../utill/LineID";
-import {useEffect, useRef, useState} from "react";
+import {useRef, useState} from "react";
 
 export default function Badge(props) {
 
@@ -37,24 +37,7 @@ export default function Badge(props) {
     }
 
     const badgeRef = useRef();
-    const scrollIntoView = () => {
-        return;
-        setTimeout(() => {
-            console.log("Srcroll!!!");
-            const visualViewport = window.visualViewport;
-            const {height} = visualViewport;
-            window.scrollTo(0, 0);
-            const rect = badgeRef?.current?.getBoundingClientRect();
-            if (!rect) return;
-            const gap = rect.bottom - height;
-            if (gap > 0) {
-                window.scrollBy(0, gap + 10);
-            } else {
-                window.scrollBy(0, 0);
-            }
-        }, 100);
 
-    }
 
     const [inputValue, setInputValue] = useState("");
 
@@ -68,14 +51,6 @@ export default function Badge(props) {
         setInputValue("");
     }
 
-    useEffect(() => {
-        if (isFloating != true) {
-            window.visualViewport.onresize = () => {
-                scrollIntoView()
-            }
-        }
-    }, []);
-
 
     if (isInput) {
         return (
@@ -83,7 +58,6 @@ export default function Badge(props) {
                 <label>
                     <input type="text" className="badge-input" placeholder={props.hint} value={inputValue}
                            onChange={(e) => setInputValue(e.target.value)}
-                           onFocus={scrollIntoView}
                            onKeyUp={handleReturnKey}
                            ref={inputRef}
                     />
