@@ -16,6 +16,8 @@
     border-radius: 99999px;
     flex-direction: column;
     position: relative;
+    text-align: center;
+    min-height: 80px !important;
 }
 
 .badge.btn:active {

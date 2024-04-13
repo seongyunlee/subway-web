@@ -203,7 +203,8 @@ export default function TravelGame() {
 
     return (
         <div className="container fill-eighty-height">
-            <Badge main={`현재 점수 ${score}`} sub={`${LineKorean[currentLine]} 역명을 입력하세요!`} lineColor={LineID.line3}/>
+            <Badge main={`현재 점수 ${score}`} sub={`${currentLine ? LineKorean[currentLine] : ""} 역명을 입력하세요!`}
+                   lineColor={LineID.line3}/>
             {transferring &&
                 <div className="content-container">
                     <LinePicker setLine={setTransfer}/>
@@ -231,7 +232,8 @@ export default function TravelGame() {
                              style={{background: HexLineColor[transferTo]}}>{LineKorean[transferTo]}</div>
                     }
                 </div>
-                <Badge hint={`${LineKorean[currentLine]} 역명을 입력하세요!`} ref={inputRef} lineColor={LineID.line3}
+                <Badge hint={`${currentLine ? LineKorean[currentLine] : ""} 역명을 입력하세요!`} ref={inputRef}
+                       lineColor={LineID.line3}
                        isInput
                        returnHandler={submitAnswer}/>
             </div>
