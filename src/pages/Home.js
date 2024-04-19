@@ -43,6 +43,10 @@ export default function Home() {
                 <Badge main="최적경로 맞추기" isButton onClick={moveToBestRouteGame}/>
                 <Badge main="지하철~ 지하철~" sub="몇호선? 몇호선?" isButton onClick={moveToTravelGame}/>
             </div>
+            <footer className="footer">
+                <div>문의사항 및 공지사항</div>
+                <a href="https://discord.gg/zBqguu7PRB">Discord</a>
+            </footer>
         </div>
     );
 }
