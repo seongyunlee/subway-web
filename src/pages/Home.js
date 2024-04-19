@@ -18,6 +18,10 @@ export default function Home() {
         navigate('/travel/guide');
     }
 
+    const showDropDown = () => {
+        alert("준비중 입니다.")
+    }
+
     return (
         <div className="container no-header">
             <div className="menu-title">
@@ -30,7 +34,7 @@ export default function Home() {
                     <div id="bottom"></div>
                 </div>
             </div>
-            <div className="drop-down-btn">
+            <div className="drop-down-btn" onClick={showDropDown}>
                 <img src={dropDownImg} alt="V"/>
                 수도권광역전철
             </div>

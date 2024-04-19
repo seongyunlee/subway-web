@@ -1,18 +1,18 @@
 import {HexLineColor, LineID, LineKorean} from "../../utill/LineID";
 import "../../css/LinePicker.css";
-export default function LinePicker(props){
+
+export default function LinePicker(props) {
 
     const lines = [];
 
-    const {setLine} = props;
+    const {setLine, isCancel} = props;
 
 
     const formatText = (text) => {
-        if(text.length > 4){
+        if (text.length > 4) {
             let half = text.length / 2;
             return text.slice(0, half) + "\n" + text.slice(half, text.length);
-        }
-        else{
+        } else {
             return text;
         }
     }
@@ -29,10 +29,16 @@ export default function LinePicker(props){
 
     console.log(lines)
 
-    return(
-        <div className="line-picker">
+    return (
+        <div className="line-picker">{
+            isCancel &&
+            <div className="line-picker-item" style={{backgroundColor: "black"}} onClick={() => setLine(null)}>
+                취소
+            </div>
+        }
             {lines.map((line, index) => (
-                <div key={index} className="line-picker-item" style={{backgroundColor: line.color}} onClick={() => setLine(line.key)}>
+                <div key={index} className="line-picker-item" style={{backgroundColor: line.color}}
+                     onClick={() => setLine(line.key)}>
                     {line.text}
                 </div>
             ))}

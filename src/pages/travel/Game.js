@@ -22,7 +22,6 @@ function ReportButton(props) {
                 <div className="report-header">
                     <img src={ReportIcon} alt="신고"/>
                     과연 오답일까요?
-                    <div className="report-count">4</div>
                 </div>
                 <div className="report-guide">
                     정말 틀렸다면 10점을 획득,<br/>
@@ -43,7 +42,6 @@ function ReportButton(props) {
             <div className="report-header">
                 <img src={ReportIcon} alt="신고"/>
                 오답!
-                <div className="report-count">4</div>
             </div>
         </div>
     )
@@ -207,7 +205,7 @@ export default function TravelGame() {
                    lineColor={LineID.line3}/>
             {transferring &&
                 <div className="content-container">
-                    <LinePicker setLine={setTransfer}/>
+                    <LinePicker setLine={setTransfer} isCancel/>
                 </div>
             }
             <div className={`fill-flex-center ${transferring ? "gone" : ""}`}>
