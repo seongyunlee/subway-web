@@ -81,13 +81,13 @@ export default function BestRouteGame() {
                 if (res.data.gameLife > 0) {
                     setTimeout(() => {
                         showProblem(res.data.newProblem);
-                    }, 1000);
+                    }, 3000);
                     setLife(res.data.gameLife)
                     setScore(res.data.gameScore)
                 } else {
                     setTimeout(() => {
                         moveToResult();
-                    }, 1000);
+                    }, 3000);
                 }
             })
     }
