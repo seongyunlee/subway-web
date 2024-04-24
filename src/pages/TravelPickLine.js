@@ -1,6 +1,6 @@
-import Badge from "../../components/Badge";
-import {LineID} from "../../utill/LineID";
-import LinePicker from "./LinePicker";
+import Badge from "../components/Badge";
+import {LineID} from "../utill/LineID";
+import LinePicker from "./TravelLinePicker";
 import {useNavigate} from "react-router-dom";
 
 export default function PickLine() {

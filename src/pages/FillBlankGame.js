@@ -1,5 +1,5 @@
-import Badge from "../../components/Badge";
-import {LineID} from "../../utill/LineID";
+import Badge from "../components/Badge";
+import {LineID} from "../utill/LineID";
 import {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";

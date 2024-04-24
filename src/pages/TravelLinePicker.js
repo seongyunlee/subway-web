@@ -1,5 +1,5 @@
-import {HexLineColor, LineID, LineKorean} from "../../utill/LineID";
-import "../../css/LinePicker.css";
+import {HexLineColor, LineID, LineKorean} from "../utill/LineID";
+import "../css/LinePicker.css";
 
 export default function LinePicker(props) {
 

@@ -1,12 +1,12 @@
-import Badge from "../../components/Badge";
-import {HexLineColor, LineID, LineKorean} from "../../utill/LineID";
-import {Bubble} from "../../components/Bubble";
-import ReportIcon from "../../assets/img/Siren.svg";
-import "../../css/Travel.css";
-import TransferIcon from "../../assets/img/transfer.png";
-import RightArrow from "../../assets/img/RightArrow.svg";
+import Badge from "../components/Badge";
+import {HexLineColor, LineID, LineKorean} from "../utill/LineID";
+import {Bubble} from "../components/Bubble";
+import ReportIcon from "../assets/img/Siren.svg";
+import "../css/Travel.css";
+import TransferIcon from "../assets/img/transfer.png";
+import RightArrow from "../assets/img/RightArrow.svg";
 import {useEffect, useRef, useState} from "react";
-import LinePicker from "./LinePicker";
+import LinePicker from "./TravelLinePicker";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 

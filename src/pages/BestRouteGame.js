@@ -1,7 +1,7 @@
-import Badge from "../../components/Badge";
-import {LineID} from "../../utill/LineID";
-import '../../css/BestRoute.css';
-import DownArrow from "../../assets/img/Vector.svg";
+import Badge from "../components/Badge";
+import {LineID} from "../utill/LineID";
+import '../css/BestRoute.css';
+import DownArrow from "../assets/img/Vector.svg";
 import axios from "axios";
 import {useEffect, useState} from "react";
 

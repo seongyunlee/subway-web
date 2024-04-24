@@ -1,6 +1,6 @@
-import Badge from "../../components/Badge";
-import {LineID} from "../../utill/LineID";
-import GuideImg from "../../assets/img/RouteExample.svg";
+import Badge from "../components/Badge";
+import {LineID} from "../utill/LineID";
+import GuideImg from "../assets/img/RouteExample.svg";
 import {useNavigate} from "react-router-dom";
 
 export default function BestRouteGuide() {

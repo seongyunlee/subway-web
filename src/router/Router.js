@@ -1,13 +1,13 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "../pages/Home";
-import FillBlankGame from "../pages/fillBlank/Game";
+import FillBlankGame from "../pages/FillBlankGame";
 import Result from "../pages/Result";
-import FillBankGuide from "../pages/fillBlank/Guide";
-import BestRouteGame from "../pages/bestRoute/Game";
-import BestRouteGuide from "../pages/bestRoute/Guide";
-import TravelGame from "../pages/travel/Game";
-import TravelGuide from "../pages/travel/Guide";
-import PickLine from "../pages/travel/PickLine";
+import FillBankGuide from "../pages/FillBlankGuide";
+import BestRouteGame from "../pages/BestRouteGame";
+import BestRouteGuide from "../pages/BestRouteGuide";
+import TravelGame from "../pages/TravelGame";
+import TravelGuide from "../pages/TravelGuide";
+import PickLine from "../pages/TravelPickLine";
 
 export default function Router() {
     return (

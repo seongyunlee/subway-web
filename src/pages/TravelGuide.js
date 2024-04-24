@@ -1,5 +1,5 @@
-import Badge from "../../components/Badge";
-import {LineID} from "../../utill/LineID";
+import Badge from "../components/Badge";
+import {LineID} from "../utill/LineID";
 import {useNavigate} from "react-router-dom";
 
 export default function TravelGuide() {
