@@ -32,6 +32,8 @@ jobs:
         run: npm install
         
       - name: react build
+        env:
+          CI: false
         run: npm run build
       
       # aws에 접근하기 위한 권한을 받아옵니다.
