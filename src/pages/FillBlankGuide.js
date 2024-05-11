@@ -12,7 +12,7 @@ export default function FillBlankGuide() {
 
     return (
         <div className="container">
-            <Badge main="노선도 채우기" sub="게임 방법" lineColor={LineID.line1}/>
+            <Badge main="노선도 채우기" sub="게임 방법" lineColor={LineID.line1} isHomeButtonVisible/>
             <div className="content-container">
                 <div className="content">
                     <img src={GuideImg} alt="노선도 채우기 게임 방법"/>

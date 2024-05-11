@@ -81,13 +81,13 @@ export default function BestRouteGame() {
                 if (res.data.gameLife > 0) {
                     setTimeout(() => {
                         showProblem(res.data.newProblem);
-                    }, 3000);
+                    }, 2000);
                     setLife(res.data.gameLife)
                     setScore(res.data.gameScore)
                 } else {
                     setTimeout(() => {
                         moveToResult();
-                    }, 3000);
+                    }, 2000);
                 }
             })
     }
@@ -99,7 +99,7 @@ export default function BestRouteGame() {
     return (
 
         <div className="container">
-            <Badge main={`현재 점수 ${score}`} sub={`남은 기회:${life}`} lineColor={LineID.line3}/>
+            <Badge main={`현재 점수 ${score}`} sub={`남은 기회:${life}`} lineColor={LineID.line3} isHomeButtonVisible/>
             <div className="route-problem-container">
                 <Badge main={startStation}/>
                 <img src={DownArrow} alt="↓"/>
@@ -107,6 +107,7 @@ export default function BestRouteGame() {
                     {
                         choices.map((choice, index) => {
                             return <Badge main={choice.stationName} sub={choice.minutes} isButton key={index}
+                                          isMiniBadge
                                           lineColor={LineID.line3} backgroundColor={choice.backgroundColor}
                                           onClick={() => submitAnswer(choice.stationId)}/>
                         })

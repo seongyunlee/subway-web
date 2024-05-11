@@ -12,7 +12,7 @@ export default function BestRouteGuide() {
 
     return (
         <div className="container">
-            <Badge main="최적 노선 맞추기" sub="게임 방법" lineColor={LineID.line1}/>
+            <Badge main="최적 노선 맞추기" sub="게임 방법" lineColor={LineID.line1} isHomeButtonVisible/>
             <div className="content-container">
                 <div className="content fixed-content">
                     <img src={GuideImg} alt="최적노선 맞추기"/>

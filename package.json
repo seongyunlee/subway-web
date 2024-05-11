@@ -1,5 +1,6 @@
 {
   "homepage": "",
+  "proxy": "https://api.zeehacheol.com",
   "name": "subway-game",
   "version": "0.1.0",
   "private": true,

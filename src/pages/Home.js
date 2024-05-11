@@ -2,6 +2,7 @@ import Badge from "../components/Badge";
 import dropDownImg from "../assets/img/drop-down.svg";
 import '../css/home.css'
 import {useNavigate} from "react-router-dom";
+import {LineID} from "../utill/LineID";
 
 export default function Home() {
 
@@ -26,8 +27,7 @@ export default function Home() {
         <div className="container no-header">
             <div className="menu-title">
                 <div className="title-badge">
-                    {/*<div th:replace="fragments/badge.html :: badge(main='지하철 게임')"></div>*/}
-                    <Badge main="지하철 게임"/>
+                    <Badge main="지하철 게임" lineColor={LineID.line2}/>
                 </div>
                 <div className="title-strip">
                     <div id="top"></div>

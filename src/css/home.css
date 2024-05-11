@@ -19,12 +19,12 @@
 
 .title-strip > #top {
     height: 16px;
-    background: yellow;
+    background: #F5A200;
 }
 
 .title-strip > #bottom {
     height: 24px;
-    background: green;
+    background: #00A84D;
 }
 
 .drop-down-btn {

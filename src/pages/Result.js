@@ -25,7 +25,6 @@ export default function Result() {
                 }
             })
             const group = Object.groupBy(indexed, ({score}) => score)
-            console.log('group', group, myRanking)
             if (myRanking) {
                 const ownRank = {
                     nickName: "나",
@@ -48,7 +47,6 @@ export default function Result() {
             }).sort((a, b) => b.score - a.score)
             setRanking(flat)
         }
-        console.log('ranking', ranking)
     }
 
     function enrollRanking(nickName) {
@@ -81,12 +79,10 @@ export default function Result() {
         }
         axios.get(url)
             .then(res => {
-                    console.log(res.data);
                     processRanking(res.data.ranks, res.data.playerInfo);
                     setPlayerScore(res.data?.playerInfo?.score)
                 }
             ).catch(err => {
-            console.log(err);
             alert("순위를 불러오는데 실패했습니다. 다시 시도해주세요.");
         })
     }
@@ -101,7 +97,7 @@ export default function Result() {
         setPlayerId(new URLSearchParams(window.location.search).get("playerId"));
         const gameType = new URLSearchParams(window.location.search).get("gameType");
         const gameTypeToString = {
-            "fillblank": "빈칸 채우기",
+            "fillblank": "노선도 채우기",
             "bestroute": "최적 경로",
             "travel": "지하철 게임",
         }
@@ -156,7 +152,7 @@ export default function Result() {
             {playerId != null &&
                 <Badge hint="랭킹 등록하기" lineColor={LineID.line1} isInput returnHandler={enrollRanking}/>}
             {playerId == null &&
-                <Badge main="게임으로 돌아기기" lineColor={LineID.line1} isButton onClick={backToGame}/>
+                <Badge main="게임으로 돌아가기" lineColor={LineID.line1} isButton onClick={backToGame}/>
             }
         </div>
     );

@@ -27,7 +27,6 @@ export default function LinePicker(props) {
         )
     }
 
-    console.log(lines)
 
     return (
         <div className="line-picker">{

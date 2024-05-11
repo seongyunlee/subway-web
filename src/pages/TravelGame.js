@@ -90,7 +90,6 @@ export default function TravelGame() {
             return {isMine: isMine, ...chat}
         })]);
         addPreviousStation(incomingChat.map(({chat}) => chat.stationId));
-        console.log(chats)
     }
 
     function removeAndAddChat(changeChat) {
@@ -98,7 +97,6 @@ export default function TravelGame() {
     }
 
     function scrollToBottom() {
-        console.log(bubbleContainer.current.scrollHeight, "scrollHeight")
         setTimeout(() => {
             bubbleContainer.current?.scrollTo(0, bubbleContainer.current.scrollHeight);
         }, 100);
@@ -129,7 +127,6 @@ export default function TravelGame() {
                     {chat: res.data.submittedAnswer, isMine: true},
                     {chat: res.data.dealerAnswer, isMine: false}
                 ]);
-                console.log(res.data, "data")
                 setScore(res.data.gameScore);
                 setCurrentLine(res.data.dealerAnswer.originalLine);
                 setTransferring(false);
@@ -146,7 +143,6 @@ export default function TravelGame() {
     }
 
     function startGame() {
-        console.log("Start Game")
         const startLine = new URLSearchParams(window.location.search).get("startline");
         axios.get(`${process.env.REACT_APP_BASE_URL}/travel/start?startLine=${startLine}`
         ).then(res => {
@@ -171,7 +167,6 @@ export default function TravelGame() {
             {headers: {"playerId": playerId}}
         ).then(res => {
             if (res.data.isSuccess) {
-                console.log(res.data.changeStation, "changeStation")
                 removeAndAddChat({...res.data.changeStation, isMine: false});
                 setScore(res.data.gameScore);
                 setTransferring(false);
@@ -191,7 +186,6 @@ export default function TravelGame() {
     const setTransfer = (line) => {
         setTransferTo(line);
         setTransferring(false);
-        console.log(transferTo, HexLineColor[transferTo])
     }
 
     useEffect(() => {

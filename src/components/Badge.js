@@ -26,6 +26,7 @@ export default function Badge(props) {
         returnHandler,
         inputRef,
         backgroundColor,
+        isMiniBadge,
     } = props;
 
     let rootClass = "badge";
@@ -47,20 +48,29 @@ export default function Badge(props) {
             returnValue();
         }
     }
-    const returnValue = () => {
-        returnHandler(inputValue);
+    const returnValue = async () => {
+        await returnHandler(inputValue);
         setInputValue("");
     }
 
     useEffect(() => {
         if (mainTextRef.current) {
-            if (mainTextRef.current.parentElement.getBoundingClientRect().width < 26 * main.length) {
-                mainTextRef.current.style.fontSize = "17px";
+            if (isMiniBadge && main) {
+                if (main.length >= 7) {
+                    mainTextRef.current.style.fontSize = "17px"
+                } else if (main.length >= 5) {
+                    mainTextRef.current.style.fontSize = "22px"
+                } else {
+                    mainTextRef.current.style.fontSize = "26px"
+                }
             } else {
-                mainTextRef.current.style.fontSize = "26px";
+                let fontSize = Number(window.getComputedStyle(mainTextRef.current).fontSize.slice(0, -2));
+                if (mainTextRef.current.parentElement.getBoundingClientRect().width < fontSize * main.length) {
+                    mainTextRef.current.style.fontSize = `${mainTextRef.current.parentElement.getBoundingClientRect().width / fontSize * main.length}px`;
+                }
             }
         }
-    }, [mainTextRef]);
+    }, [main]);
 
 
     if (isInput) {
