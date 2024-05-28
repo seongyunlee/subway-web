@@ -15,7 +15,7 @@ export default function BestRouteGuide() {
             <Badge main="최적 노선 맞추기" sub="게임 방법" lineColor={LineID.line1} isHomeButtonVisible/>
             <div className="content-container">
                 <div className="content fixed-content">
-                    <img src={GuideImg} alt="최적노선 맞추기"/>
+                    <img loading="lazy" src={GuideImg} alt="최적노선 맞추기"/>
                 </div>
                 <div className="content">
                     가장 빠른 경로 상에 있는 역을 선택하세요!<br/>

@@ -124,11 +124,11 @@ export default function FillBlankGame() {
             <div className="content-container">
                 <div className="content">
                     {problem == null ? "문제를 불러오는중입니다." :
-                        <img src={problem.problemImage} alt="문제 가져오는중.."/>
+                        <img src={problem.problemImage} alt="문제 가져오는중.." loading="lazy"/>
                     }
                 </div>
                 <Badge hint="정답 입력" lineColor={(isCorrect !== false) ? LineID.line1 : LineID.lineSinbundang}
-                       isInput={isCorrect == null} returnHandler={submitAnswer} isHomeButtonVisible
+                       isInput={isCorrect == null} returnHandler={submitAnswer}
                        main={isCorrect ? "정답입니다!" : "틀렸습니다!"} inputRef={inputRef}
                        sub={isCorrect ? null : `정답은 ${answer}입니다.`}/>
                 <input className="fake-input" ref={hiddenInput}></input>

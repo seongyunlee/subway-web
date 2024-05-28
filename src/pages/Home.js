@@ -35,7 +35,7 @@ export default function Home() {
                 </div>
             </div>
             <div className="drop-down-btn" onClick={showDropDown}>
-                <img src={dropDownImg} alt="V"/>
+                <img loading="lazy" src={dropDownImg} alt="V"/>
                 수도권광역전철
             </div>
             <div className="game-list">

@@ -102,7 +102,7 @@ export default function BestRouteGame() {
             <Badge main={`현재 점수 ${score}`} sub={`남은 기회:${life}`} lineColor={LineID.line3} isHomeButtonVisible/>
             <div className="route-problem-container">
                 <Badge main={startStation}/>
-                <img src={DownArrow} alt="↓"/>
+                <img loading="lazy" src={DownArrow} alt="↓"/>
                 <div className="choose-station-container">
                     {
                         choices.map((choice, index) => {
@@ -113,7 +113,7 @@ export default function BestRouteGame() {
                         })
                     }
                 </div>
-                <img src={DownArrow} alt="↓"/>
+                <img loading="lazy" src={DownArrow} alt="↓"/>
                 <Badge main={endStation}/>
             </div>
         </div>

@@ -15,7 +15,7 @@ export default function FillBlankGuide() {
             <Badge main="노선도 채우기" sub="게임 방법" lineColor={LineID.line1} isHomeButtonVisible/>
             <div className="content-container">
                 <div className="content">
-                    <img src={GuideImg} alt="노선도 채우기 게임 방법"/>
+                    <img loading="lazy" src={GuideImg} alt="노선도 채우기 게임 방법"/>
                 </div>
                 <div className="content">
                     노선도에서 <span className="red">???</span>에 들어갈 역명을 입력해주세요!<br/>

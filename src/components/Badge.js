@@ -85,7 +85,7 @@ export default function Badge(props) {
                 </label>
                 <div className="badge-btn return-btn" style={{background: HexLineColor[lineColor]}}
                      onClick={returnValue}>
-                    <img src={RightArrow} alt="→"/>
+                    <img loading="lazy" src={RightArrow} alt="→"/>
                 </div>
             </div>
         );
@@ -99,7 +99,7 @@ export default function Badge(props) {
             {
                 isHomeButtonVisible &&
                 <div className="badge-btn home-btn" onClick={goHome} style={{background: HexLineColor[lineColor]}}>
-                    <img src={HomeButton} alt="🏠"/>
+                    <img loading="lazy" src={HomeButton} alt="🏠"/>
                 </div>
             }
             <div className="badge-main" ref={mainTextRef}
@@ -108,7 +108,7 @@ export default function Badge(props) {
             {
                 isNextButtonVisible &&
                 <div className="badge-btn return-btn" style={{background: HexLineColor[lineColor]}}>
-                    <img src={RightArrow} alt="→"/>
+                    <img loading="lazy" src={RightArrow} alt="→"/>
                 </div>
             }
         </div>

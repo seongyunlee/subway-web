@@ -20,7 +20,7 @@ function ReportButton(props) {
         return (
             <div className="report-btn">
                 <div className="report-header">
-                    <img src={ReportIcon} alt="신고"/>
+                    <img loading="lazy" src={ReportIcon} alt="신고"/>
                     과연 오답일까요?
                 </div>
                 <div className="report-guide">
@@ -40,7 +40,7 @@ function ReportButton(props) {
     return (
         <div className="report-btn" onClick={() => setIsExpanded(true)}>
             <div className="report-header">
-                <img src={ReportIcon} alt="신고"/>
+                <img loading="lazy" src={ReportIcon} alt="신고"/>
                 오답!
             </div>
         </div>
@@ -214,10 +214,10 @@ export default function TravelGame() {
 
                 <ReportButton onClick={reportAnswer}/>
                 <div className="transfer-btn" onClick={toggleTransfer}>
-                    <img src={TransferIcon} alt="T"/>
+                    <img loading="lazy" src={TransferIcon} alt="T"/>
                     환승
                     {transferTo &&
-                        <img src={RightArrow} alt="→"/>
+                        <img loading="lazy" src={RightArrow} alt="→"/>
                     }
                     {transferTo &&
                         <div className="line-tag"
