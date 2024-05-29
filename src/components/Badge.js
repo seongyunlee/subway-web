@@ -37,6 +37,8 @@ export default function Badge(props) {
         rootClass += " input-badge";
     }
 
+    const [isComposing, setIsComposing] = useState(false);
+
     const badgeRef = useRef();
     const mainTextRef = useRef();
 
@@ -44,7 +46,8 @@ export default function Badge(props) {
 
 
     const handleReturnKey = (e) => {
-        if (e.keyCode === 13) {
+        if (isComposing) return;
+        if (e.key === "Enter") {
             returnValue();
         }
     }
@@ -79,8 +82,10 @@ export default function Badge(props) {
                 <label>
                     <input type="text" className="badge-input" placeholder={props.hint} value={inputValue}
                            onChange={(e) => setInputValue(e.target.value)}
-                           onKeyUp={handleReturnKey}
+                           onKeyDown={handleReturnKey}
                            ref={inputRef}
+                           onCompositionStart={() => setIsComposing(true)}
+                           onCompositionEnd={() => setIsComposing(false)}
                     />
                 </label>
                 <div className="badge-btn return-btn" style={{background: HexLineColor[lineColor]}}
