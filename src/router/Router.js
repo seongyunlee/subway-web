@@ -7,11 +7,13 @@ import BestRouteGame from "../pages/BestRouteGame";
 import BestRouteGuide from "../pages/BestRouteGuide";
 import TravelGame from "../pages/TravelGame";
 import TravelGuide from "../pages/TravelGuide";
-import PickLine from "../pages/TravelPickLine";
+import PickLine from "../pages/TravelPickLine"
+import RouteChangeTracker from "../utill/RouteChangeTracker";
 
 export default function Router() {
     return (
         <BrowserRouter>
+            <RouteChangeTracker/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/fillblank/game" element={<FillBlankGame/>}/>
