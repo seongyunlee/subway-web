@@ -36,6 +36,12 @@
     right: 16px;
 }
 
+.share-btn > img {
+    width: 20px;
+    height: 20px;
+}
+
+
 .badge-btn {
     position: absolute;
     transform: translate(0, -50%);

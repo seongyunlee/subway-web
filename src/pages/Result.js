@@ -128,6 +128,7 @@ export default function Result() {
     }
 
     useLayoutEffect(() => {
+        return;
         getRanking();
         setPlayerId(new URLSearchParams(window.location.search).get("playerId"));
         const gameType = new URLSearchParams(window.location.search).get("gameType");
@@ -184,17 +185,17 @@ export default function Result() {
                     })}
                 </div>
             </div>
-            {playerId != null &&
-                <Badge hint="랭킹 등록하기" lineColor={LineID.line1} isInput returnHandler={enrollRanking}/>}
-            <Badge main="결과 공유하기"
-                   sub={playerId == null ? gameType : `최종 점수: ${playerScore != null ? playerScore : ""}`}
-                   lineColor={LineID.line1}
-                   returnHandler={shareKakao}
-                   isShareButtonVisible/>
-            />
-            {playerId == null &&
-                <Badge main="게임으로 돌아가기" lineColor={LineID.line1} isButton onClick={backToGame}/>
-            }
+            <div className="badges-container">
+                {playerId != null &&
+                    <Badge hint="랭킹 등록하기" lineColor={LineID.line1} isInput returnHandler={enrollRanking}/>}
+                <Badge main="결과 공유하기"
+                       lineColor={LineID.lineKakao}
+                       returnHandler={shareKakao}
+                       isShareButtonVisible/>
+                {playerId == null &&
+                    <Badge main="게임으로 돌아가기" lineColor={LineID.line1} isButton onClick={backToGame}/>
+                }
+            </div>
         </div>
     );
 }

@@ -41,6 +41,16 @@
     color: red;
 }
 
+.badges-container {
+    display: grid;
+    row-gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
 .board-score-item {
     display: flex;
     flex-direction: row;

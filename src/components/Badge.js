@@ -1,10 +1,10 @@
 import '../css/Badge.css'
 import RightArrow from "../assets/img/return-arrow.svg";
-import ShareIcon from "../assets/img/shareIcon.png";
 import HomeButton from "../assets/img/home.svg";
 import {useNavigate} from "react-router-dom";
 import {HexLineColor} from "../utill/LineID";
 import {useEffect, useRef, useState} from "react";
+import KakaoIcon from "../assets/img/kakao.png";
 
 export default function Badge(props) {
 
@@ -99,20 +99,13 @@ export default function Badge(props) {
     }
     if (isShareButtonVisible) {
         return (
-            <div className={rootClass} ref={badgeRef} style={{outlineColor: HexLineColor[lineColor], height: "80px"}}
-                 onClick={returnValue}>
-                <label>
-                    <input type="text" className="badge-input" placeholder={props.hint} value={inputValue}
-                           onChange={(e) => setInputValue(e.target.value)}
-                           onKeyDown={handleReturnKey}
-                           ref={inputRef}
-                           onCompositionStart={() => setIsComposing(true)}
-                           onCompositionEnd={() => setIsComposing(false)}
-                    />
-                </label>
-                <div className="badge-btn return-btn" style={{background: HexLineColor[lineColor]}}
-                     onClick={returnValue}>
-                    <img loading="lazy" src={ShareIcon} alt="✉️"/>
+            <div className={rootClass} onClick={props.onClick}
+                 style={{outlineColor: HexLineColor[lineColor], background: backgroundColor}}>
+                <div className="badge-main" ref={mainTextRef}
+                     style={{color: backgroundColor != null ? "#ffffff" : "#000000"}}>{main}</div>
+                <div className="badge-sub" style={{color: backgroundColor != null ? "#ffffff" : "#000000"}}>{sub}</div>
+                <div className="badge-btn return-btn share-btn" style={{background: HexLineColor[lineColor]}}>
+                    <img loading="lazy" src={KakaoIcon} alt="✉️"/>
                 </div>
             </div>
         );
