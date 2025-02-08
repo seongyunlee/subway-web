@@ -19,11 +19,8 @@ export default function Result() {
     const [gameType, setGameType] = useState("");
 
     useEffect(() => {
-        // init 해주기 전에 clean up 을 해준다.
         Kakao.cleanup();
-        // 자신의 js 키를 넣어준다.
         Kakao.init('8d1e862300c7d96439f927beaba60f55');
-        // 잘 적용되면 true 를 뱉는다.
         console.log(Kakao.isInitialized());
     }, []);
 
@@ -95,14 +92,12 @@ export default function Result() {
                 description: content,
                 imageUrl:
                     'https://subwaygame.s3.ap-northeast-2.amazonaws.com/e60668ae-70a6-4cf3-b101-47b237259fcb.png',
-                link: {
-                    mobileWebUrl: "https://zeehacheol.com",
-                },
             },
             buttons: [
                 {
                     title: '나도 테스트 하러가기',
                     link: {
+                        webUrl: "https://zeehacheol.com",
                         mobileWebUrl: "https://zeehacheol.com",
                     },
                 },
