@@ -3,7 +3,9 @@ import '../css/ScoreBoard.css'
 import {useNavigate} from "react-router-dom";
 import {LineID} from "../utill/LineID";
 import axios from "axios";
-import {useLayoutEffect, useState} from "react";
+import {useEffect, useLayoutEffect, useState} from "react";
+
+const {Kakao} = window;
 
 export default function Result() {
 
@@ -15,6 +17,16 @@ export default function Result() {
 
     const [playerId, setPlayerId] = useState("");
     const [gameType, setGameType] = useState("");
+
+    useEffect(() => {
+        // init 해주기 전에 clean up 을 해준다.
+        Kakao.cleanup();
+        // 자신의 js 키를 넣어준다.
+        Kakao.init('8d1e862300c7d96439f927beaba60f55');
+        // 잘 적용되면 true 를 뱉는다.
+        console.log(Kakao.isInitialized());
+    }, []);
+
 
     function processRanking(rawRanking, myRanking) {
         if (rawRanking) {
@@ -68,6 +80,34 @@ export default function Result() {
         }).catch(err => {
             alert("랭킹 등록에 실패했습니다. 다시 시도해주세요.");
         })
+    }
+
+    const shareKakao = () => {
+
+        const content = "🚇 지하철 역 맞추기 게임 도전 완료! 🚇\n" +
+            "나는 OO점을 기록했어! (몇 개 틀린 건 비밀 🤫)\n" +
+            "너도 한 번 도전해봐! 몇 점이나 나오려나? ㅋㅋ"
+
+        Kakao.Share.sendDefault({
+            objectType: 'feed',
+            content: {
+                title: '지하철 게임',
+                description: content,
+                imageUrl:
+                    'https://subwaygame.s3.ap-northeast-2.amazonaws.com/e60668ae-70a6-4cf3-b101-47b237259fcb.png',
+                link: {
+                    mobileWebUrl: "https://zeehacheol.com",
+                },
+            },
+            buttons: [
+                {
+                    title: '나도 테스트 하러가기',
+                    link: {
+                        mobileWebUrl: "https://zeehacheol.com",
+                    },
+                },
+            ],
+        });
     }
 
     function getRanking() {
@@ -151,6 +191,12 @@ export default function Result() {
             </div>
             {playerId != null &&
                 <Badge hint="랭킹 등록하기" lineColor={LineID.line1} isInput returnHandler={enrollRanking}/>}
+            <Badge main="결과 공유하기"
+                   sub={playerId == null ? gameType : `최종 점수: ${playerScore != null ? playerScore : ""}`}
+                   lineColor={LineID.line1}
+                   returnHandler={shareKakao}
+                   isShareButtonVisible/>
+            />
             {playerId == null &&
                 <Badge main="게임으로 돌아가기" lineColor={LineID.line1} isButton onClick={backToGame}/>
             }

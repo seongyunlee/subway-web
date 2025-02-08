@@ -1,5 +1,6 @@
 import '../css/Badge.css'
 import RightArrow from "../assets/img/return-arrow.svg";
+import ShareIcon from "../assets/img/shareIcon.png";
 import HomeButton from "../assets/img/home.svg";
 import {useNavigate} from "react-router-dom";
 import {HexLineColor} from "../utill/LineID";
@@ -27,6 +28,7 @@ export default function Badge(props) {
         inputRef,
         backgroundColor,
         isMiniBadge,
+        isShareButtonVisible,
     } = props;
 
     let rootClass = "badge";
@@ -95,8 +97,26 @@ export default function Badge(props) {
             </div>
         );
     }
-    ;
-
+    if (isShareButtonVisible) {
+        return (
+            <div className={rootClass} ref={badgeRef} style={{outlineColor: HexLineColor[lineColor], height: "80px"}}
+                 onClick={returnValue}>
+                <label>
+                    <input type="text" className="badge-input" placeholder={props.hint} value={inputValue}
+                           onChange={(e) => setInputValue(e.target.value)}
+                           onKeyDown={handleReturnKey}
+                           ref={inputRef}
+                           onCompositionStart={() => setIsComposing(true)}
+                           onCompositionEnd={() => setIsComposing(false)}
+                    />
+                </label>
+                <div className="badge-btn return-btn" style={{background: HexLineColor[lineColor]}}
+                     onClick={returnValue}>
+                    <img loading="lazy" src={ShareIcon} alt="✉️"/>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className={rootClass} onClick={props.onClick}
