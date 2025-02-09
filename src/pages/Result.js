@@ -128,7 +128,6 @@ export default function Result() {
     }
 
     useLayoutEffect(() => {
-        return;
         getRanking();
         setPlayerId(new URLSearchParams(window.location.search).get("playerId"));
         const gameType = new URLSearchParams(window.location.search).get("gameType");
