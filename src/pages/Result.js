@@ -92,6 +92,10 @@ export default function Result() {
                 description: content,
                 imageUrl:
                     'https://subwaygame.s3.ap-northeast-2.amazonaws.com/e60668ae-70a6-4cf3-b101-47b237259fcb.png',
+                link: {
+                    mobileWebUrl: 'https://zeehacheol.com',
+                    webUrl: 'https://zeehacheol.com',
+                }
             },
             buttons: [
                 {
