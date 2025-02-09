@@ -189,7 +189,7 @@ export default function Result() {
                     <Badge hint="랭킹 등록하기" lineColor={LineID.line1} isInput returnHandler={enrollRanking}/>}
                 <Badge main="결과 공유하기"
                        lineColor={LineID.lineKakao}
-                       returnHandler={shareKakao}
+                       onClick={shareKakao}
                        isShareButtonVisible/>
                 {playerId == null &&
                     <Badge main="게임으로 돌아가기" lineColor={LineID.line1} isButton onClick={backToGame}/>
