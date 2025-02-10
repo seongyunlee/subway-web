@@ -82,7 +82,7 @@ export default function Result() {
     const shareKakao = () => {
 
         const content = "🚇 지하철 역 맞추기 게임 도전 완료! 🚇\n" +
-            "나는 OO점을 기록했어! (몇 개 틀린 건 비밀 🤫)\n" +
+            `나는 ${playerScore}점을 기록했어! (몇 개 틀린 건 비밀 🤫)\n` +
             "너도 한 번 도전해봐! 몇 점이나 나오려나? ㅋㅋ"
 
         Kakao.Share.sendDefault({
@@ -191,13 +191,12 @@ export default function Result() {
             <div className="badges-container">
                 {/*{playerId != null &&
                     <Badge hint="랭킹 등록하기" lineColor={LineID.line1} isInput returnHandler={enrollRanking}/>}*/}
-                <Badge main="결과 공유하기"
-                       lineColor={LineID.lineKakao}
-                       onClick={shareKakao}
-                       isShareButtonVisible/>
-                {playerId == null &&
-                    <Badge main="게임으로 돌아가기" lineColor={LineID.line1} isButton onClick={backToGame}/>
+                {playerId != null && <Badge main="결과 공유하기"
+                                            lineColor={LineID.lineKakao}
+                                            onClick={shareKakao}
+                                            isShareButtonVisible/>
                 }
+                <Badge main="게임으로 돌아가기" lineColor={LineID.line1} isButton onClick={backToGame}/>
             </div>
         </div>
     );
