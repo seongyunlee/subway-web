@@ -189,8 +189,8 @@ export default function Result() {
                 </div>
             </div>
             <div className="badges-container">
-                {playerId != null &&
-                    <Badge hint="랭킹 등록하기" lineColor={LineID.line1} isInput returnHandler={enrollRanking}/>}
+                {/*{playerId != null &&
+                    <Badge hint="랭킹 등록하기" lineColor={LineID.line1} isInput returnHandler={enrollRanking}/>}*/}
                 <Badge main="결과 공유하기"
                        lineColor={LineID.lineKakao}
                        onClick={shareKakao}
