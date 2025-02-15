@@ -9,7 +9,7 @@ export default function LinePicker(props) {
 
 
     const formatText = (text) => {
-        if (text.length > 4) {
+        if (text?.length > 4) {
             let half = text.length / 2;
             return text.slice(0, half) + "\n" + text.slice(half, text.length);
         } else {

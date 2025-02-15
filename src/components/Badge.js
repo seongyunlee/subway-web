@@ -100,11 +100,11 @@ export default function Badge(props) {
     if (isShareButtonVisible) {
         return (
             <div className={rootClass} onClick={props.onClick}
-                 style={{outlineColor: HexLineColor[lineColor], background: backgroundColor}}>
+                 style={{outlineColor: "#FEE500", background: backgroundColor}}>
                 <div className="badge-main" ref={mainTextRef}
                      style={{color: backgroundColor != null ? "#ffffff" : "#000000"}}>{main}</div>
                 <div className="badge-sub" style={{color: backgroundColor != null ? "#ffffff" : "#000000"}}>{sub}</div>
-                <div className="badge-btn return-btn share-btn" style={{background: HexLineColor[lineColor]}}>
+                <div className="badge-btn return-btn share-btn" style={{background: "#FEE500"}}>
                     <img loading="lazy" src={KakaoIcon} alt="✉️"/>
                 </div>
             </div>

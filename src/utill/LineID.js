@@ -22,7 +22,6 @@ export const LineID = {
     lineIncheon2: "LINE_INCHEON2",
     lineSuinbundang: "LINE_SUINBUNDANG",
     lineUijeongbu: "LINE_UIJEONGBU",
-    lineKakao: "LINE_KAKAO",
 };
 
 export const HexLineColor = {
@@ -49,7 +48,6 @@ export const HexLineColor = {
     "LINE_INCHEON2": "#ED8B00",
     "LINE_SUINBUNDANG": "#F5A200",
     "LINE_UIJEONGBU": "#FDA600",
-    "LINE_KAKAO": "#FEE500",
 };
 
 export const LineKorean = {
