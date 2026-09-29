@@ -124,7 +124,7 @@ export default function FillBlankGame() {
             <div className="content-container">
                 <div className="content">
                     {problem == null ? "문제를 불러오는중입니다." :
-                        <img src={problem.problemImage} alt="문제 가져오는중.." loading="lazy"/>
+                        <img className="problem-image" src={problem.problemImage} alt="문제 가져오는중.." loading="lazy"/>
                     }
                 </div>
                 <Badge hint="정답 입력" lineColor={(isCorrect !== false) ? LineID.line1 : LineID.lineSinbundang}

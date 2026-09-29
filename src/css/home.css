@@ -86,6 +86,16 @@
     max-height: 200px;
 }
 
+/* 빈칸 맞추기 문제 이미지는 주변 역명을 읽어야 풀 수 있다.
+   위의 max-height: 200px 이면 320x280 원본이 229x200 으로 줄어
+   역명 글자가 14px 밑으로 떨어져 모바일에서 읽기 어렵다.
+   가이드 페이지 이미지와 달리 폭을 최대한 쓰게 한다. */
+.content > img.problem-image {
+    max-height: none;
+    width: 100%;
+    height: auto;
+}
+
 .guide-badge-container {
     margin-bottom: 20px;
     width: 90%;
