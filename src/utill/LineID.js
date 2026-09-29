@@ -22,6 +22,7 @@ export const LineID = {
     lineIncheon2: "LINE_INCHEON2",
     lineSuinbundang: "LINE_SUINBUNDANG",
     lineUijeongbu: "LINE_UIJEONGBU",
+    lineGtxA: "LINE_GTXA",
 };
 
 export const HexLineColor = {
@@ -48,6 +49,7 @@ export const HexLineColor = {
     "LINE_INCHEON2": "#ED8B00",
     "LINE_SUINBUNDANG": "#F5A200",
     "LINE_UIJEONGBU": "#FDA600",
+    "LINE_GTXA": "#9A6292",
 };
 
 export const LineKorean = {
@@ -74,4 +76,5 @@ export const LineKorean = {
     "LINE_INCHEON2": "인천2호선",
     "LINE_SUINBUNDANG": "수인분당선",
     "LINE_UIJEONGBU": "의정부경전철",
+    "LINE_GTXA": "GTX-A",
 };

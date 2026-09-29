@@ -8,8 +8,11 @@ export default function LinePicker(props) {
     const {setLine, isCancel} = props;
 
 
+    // 긴 노선명은 원 안에 들어가도록 가운데서 줄바꿈한다.
+    // 단 GTX-A 처럼 한글이 아닌 이름은 쪼개면 "GT / X-A" 가 되어 읽을 수 없다.
     const formatText = (text) => {
-        if (text?.length > 4) {
+        const isHangul = /[가-힣]/.test(text ?? "");
+        if (isHangul && text.length > 4) {
             let half = text.length / 2;
             return text.slice(0, half) + "\n" + text.slice(half, text.length);
         } else {
