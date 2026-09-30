@@ -8,8 +8,9 @@ const RouteChangeTracker = () => {
     const [initialized, setInitialized] = useState(false);
 
     useEffect(() => {
-        if (!window.location.href.includes("localhost")) {
-            ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
+        const gaId = process.env.REACT_APP_GA_TRACKING_ID;
+        if (!window.location.href.includes("localhost") && gaId) {
+            ReactGA.initialize(gaId);
         }
         setInitialized(true);
     }, []);
